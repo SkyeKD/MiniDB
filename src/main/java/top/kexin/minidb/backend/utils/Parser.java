@@ -1,0 +1,23 @@
+package top.kexin.minidb.backend.utils;
+
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+
+import com.google.common.primitives.Bytes;
+
+/**
+ * util class
+ *
+ * @author KexinDai
+ * @date 2025/8/21
+ */
+public class Parser {
+    public static long parseLong(byte[] buf) {
+        ByteBuffer buffer = ByteBuffer.wrap(buf, 0, 8);
+        return buffer.getLong();
+    }
+
+    public static byte[] long2Byte(long value) {
+        return ByteBuffer.allocate(Long.SIZE / Byte.SIZE).putLong(value).array();
+    }
+}
